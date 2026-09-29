@@ -1,0 +1,17 @@
+{
+ "app": "erpnext_fiskaly_sign_at",
+ "creation": "2026-08-20 06:55:00.000000",
+ "docstatus": 0,
+ "doctype": "Workspace Sidebar",
+ "header_icon": "receipt-text",
+ "idx": 0,
+ "items": [
+  {"child": 0, "collapsible": 1, "icon": "receipt-text", "indent": 0, "keep_closed": 0, "label": "My POS Invoices", "link_to": "POS Invoice", "link_type": "DocType", "show_arrow": 0, "type": "Link"}
+ ],
+ "modified": "2026-08-20 06:55:00.000000",
+ "modified_by": "Administrator",
+ "name": "My POS Invoices",
+ "owner": "Administrator",
+ "standard": 1,
+ "title": "My POS Invoices"
+}

@@ -1,0 +1,17 @@
+{
+ "app": "erpnext_fiskaly_sign_at",
+ "creation": "2026-08-20 06:55:00.000000",
+ "docstatus": 0,
+ "doctype": "Workspace Sidebar",
+ "header_icon": "shopping-cart",
+ "idx": 0,
+ "items": [
+  {"child": 0, "collapsible": 1, "icon": "shopping-cart", "indent": 0, "keep_closed": 0, "label": "Point of Sale", "link_to": "point-of-sale", "link_type": "Page", "show_arrow": 0, "type": "Link"}
+ ],
+ "modified": "2026-08-20 06:55:00.000000",
+ "modified_by": "Administrator",
+ "name": "Point of Sale",
+ "owner": "Administrator",
+ "standard": 1,
+ "title": "Point of Sale"
+}

@@ -1,0 +1,27 @@
+{
+ "actions": [],
+ "creation": "2026-08-18 00:00:00.000000",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": ["tax_rate", "tax_account", "v1_bucket", "unified_code", "is_exempt", "exemption_reason"],
+ "fields": [
+  {"description": "Österreichischer Umsatzsteuersatz in Prozent, z. B. 20, 13, 10, 4,9, 19 oder 0.", "fieldname": "tax_rate", "fieldtype": "Float", "in_list_view": 1, "label": "Steuersatz (%)", "reqd": 1},
+  {"description": "Empfohlene Absicherung: Nur Buchungen auf diesem ERPNext-Steuerkonto dürfen diese Zuordnung verwenden. Dadurch werden Gebühren oder Abgaben nicht versehentlich als Umsatzsteuer fiskalisiert.", "fieldname": "tax_account", "fieldtype": "Link", "in_list_view": 1, "label": "ERPNext-Steuerkonto", "options": "Account"},
+  {"description": "Ordnet den ERPNext-Steuersatz dem gesetzlich vorgesehenen Betragsfeld im RKSV-Datensatz zu. Übliche Zuordnung: 20 % Normalsteuersatz, 10 % bzw. 13 % ermäßigter Satz, 19 % oder 4,9 % besonderer Satz sowie 0 % bzw. steuerfreie Umsätze. Der technische Fiskaly-Wert wird automatisch im Hintergrund gespeichert.", "fieldname": "v1_bucket", "fieldtype": "Select", "in_list_view": 1, "label": "RKSV-Steuersatzgruppe", "options": "standard\nreduced1\nreduced2\nspecial\nzero", "reqd": 1},
+  {"description": "Steuercode der noch nicht freigegebenen Unified-API; wird bei der TEST-Provisionierung übernommen.", "fieldname": "unified_code", "fieldtype": "Data", "in_list_view": 1, "label": "Unified-Steuercode"},
+  {"default": "0", "fieldname": "is_exempt", "fieldtype": "Check", "label": "Steuerbefreit"},
+  {"depends_on": "eval:doc.is_exempt", "description": "Am Beleg nachvollziehbarer Grund der Steuerbefreiung.", "fieldname": "exemption_reason", "fieldtype": "Data", "label": "Befreiungsgrund"}
+ ],
+ "istable": 1,
+ "links": [],
+ "modified": "2026-08-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Erpnext Fiskaly Sign At",
+ "name": "Fiskaly VAT Mapping",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "ASC",
+ "states": []
+}

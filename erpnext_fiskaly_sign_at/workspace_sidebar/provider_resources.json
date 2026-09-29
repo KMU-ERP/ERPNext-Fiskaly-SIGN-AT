@@ -1,0 +1,3 @@
+{
+ "app": "erpnext_fiskaly_sign_at", "creation": "2026-08-20 10:00:00.000000", "docstatus": 0, "doctype": "Workspace Sidebar", "header_icon": "database", "idx": 0, "items": [{"child": 0, "collapsible": 1, "icon": "database", "indent": 0, "keep_closed": 0, "label": "Provider Resources", "link_to": "Fiskaly Provider Resource", "link_type": "DocType", "show_arrow": 0, "type": "Link"}], "modified": "2026-08-20 10:00:00.000000", "modified_by": "Administrator", "name": "Provider Resources", "owner": "Administrator", "standard": 1, "title": "Provider Resources"
+}

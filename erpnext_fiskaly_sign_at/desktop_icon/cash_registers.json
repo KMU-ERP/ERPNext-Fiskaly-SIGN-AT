@@ -1,0 +1,3 @@
+{
+ "app": "erpnext_fiskaly_sign_at", "bg_color": "blue", "creation": "2026-08-20 10:00:00.000000", "docstatus": 0, "doctype": "Desktop Icon", "hidden": 0, "icon": "monitor-smartphone", "icon_type": "Link", "idx": 8, "label": "Cash Registers", "link_to": "Cash Registers", "link_type": "Workspace Sidebar", "modified": "2026-08-20 10:00:00.000000", "modified_by": "Administrator", "name": "Cash Registers", "owner": "Administrator", "parent_icon": "", "restrict_removal": 0, "roles": [{"role": "Fiskaly RKSV Administrator"}], "standard": 1
+}

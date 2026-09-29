@@ -1,0 +1,293 @@
+# CI for the supported runtime declared by this app: Frappe/ERPNext 16,
+# Python 3.14, Node 24 and MariaDB 11.8.
+
+include:
+  - template: Jobs/SAST.gitlab-ci.yml
+  - template: Jobs/Secret-Detection.gitlab-ci.yml
+
+workflow:
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: "$CI_COMMIT_TAG"
+    # Avoid duplicate branch and merge-request pipelines.
+    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
+      when: never
+    - if: "$CI_COMMIT_BRANCH"
+
+stages:
+  - validate
+  - security
+  - test
+  - package
+
+default:
+  image: frappe/bench:latest
+  interruptible: true
+  timeout: 45m
+  retry:
+    max: 1
+    when:
+      - runner_system_failure
+      - runner_external_dependency_failure
+      - runner_interrupted
+      - stuck_pending_with_matching_runners
+      - stuck_pending_no_matching_runners
+      - no_updates_running
+      - no_updates_canceling
+  cache:
+    key:
+      files:
+        - .pre-commit-config.yaml
+        - pyproject.toml
+      prefix: "$CI_JOB_NAME_SLUG"
+    paths:
+      - .cache/pip/
+      - .cache/pre-commit/
+      - .cache/uv/
+      - .cache/yarn/
+
+variables:
+  APP_NAME: erpnext_fiskaly_sign_at
+  FRAPPE_BRANCH: version-16
+  ERPNEXT_BRANCH: version-16
+  ERPNEXT_REPOSITORY: https://github.com/frappe/erpnext.git
+  # Keep the generated bench outside the checkout. The app is linked into it,
+  # so nesting the bench below CI_PROJECT_DIR would create a recursive tree.
+  BENCH_DIR: "/home/frappe/ci-bench-$CI_JOB_ID"
+  TEST_SITE: test_site
+  MIN_COVERAGE: "58"
+
+  PYTHONUNBUFFERED: "1"
+  PIP_DISABLE_PIP_VERSION_CHECK: "1"
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  PRE_COMMIT_HOME: "$CI_PROJECT_DIR/.cache/pre-commit"
+  UV_CACHE_DIR: "$CI_PROJECT_DIR/.cache/uv"
+  YARN_CACHE_FOLDER: "$CI_PROJECT_DIR/.cache/yarn"
+
+  # Required for diff-aware checks and GitLab secret detection.
+  GIT_DEPTH: "0"
+  AST_ENABLE_MR_PIPELINES: "true"
+  SAST_EXCLUDED_PATHS: ".cache,node_modules"
+
+.quality_base:
+  stage: validate
+  before_script:
+    - python --version
+    - node --version
+    # GitLab checks the repository out as the runner user, while the official
+    # Frappe image executes as `frappe`. Allow this exact checkout path so
+    # pre-commit can call Git despite the differing ownership.
+    - git config --global --add safe.directory "$CI_PROJECT_DIR"
+    - git -C "$CI_PROJECT_DIR" rev-parse --is-inside-work-tree
+    - python -m pip install --user "pre-commit>=4,<5"
+
+quality:
+  extends: .quality_base
+  script:
+    # Always validate syntax and repository integrity across the full tree.
+    - python -m compileall -q -f "$APP_NAME"
+    - |
+      for hook in check-merge-conflict check-ast check-json check-toml check-yaml debug-statements; do
+        pre-commit run "$hook" --all-files
+      done
+    # Apply formatters and linters to the complete change, without re-baselining
+    # unrelated legacy formatting in the same merge request.
+    - |
+      baseline="${CI_MERGE_REQUEST_DIFF_BASE_SHA:-$CI_COMMIT_BEFORE_SHA}"
+      zero_sha="0000000000000000000000000000000000000000"
+
+      if ! git cat-file -e "${baseline}^{commit}" 2>/dev/null || [ "$baseline" = "$zero_sha" ]; then
+        if git cat-file -e "HEAD~1^{commit}" 2>/dev/null; then
+          baseline="HEAD~1"
+        else
+          baseline=""
+        fi
+      fi
+
+      if [ -n "$baseline" ]; then
+        pre-commit run --from-ref "$baseline" --to-ref HEAD --show-diff-on-failure
+      else
+        pre-commit run --all-files --show-diff-on-failure
+      fi
+
+# A scheduled full scan keeps legacy lint debt visible while `quality` prevents
+# new violations from entering the repository.
+quality_full:
+  extends: .quality_base
+  allow_failure: true
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "schedule"'
+  script:
+    - pre-commit run --all-files --show-diff-on-failure
+
+# GitLab SAST supplies the native security report. This additional scan applies
+# Frappe-specific rules and blocks only findings introduced by the current diff.
+frappe_semgrep:
+  stage: security
+  image:
+    name: semgrep/semgrep:1.172.0
+    entrypoint: [""]
+  variables:
+    SEMGREP_SEND_METRICS: "off"
+  before_script:
+    - git config --global --add safe.directory "$CI_PROJECT_DIR"
+    - git -C "$CI_PROJECT_DIR" rev-parse --is-inside-work-tree
+  script:
+    - rules_dir="$(mktemp -d)"
+    - git clone --depth 1 https://github.com/frappe/semgrep-rules.git "$rules_dir/frappe-semgrep-rules"
+    - |
+      baseline="${CI_MERGE_REQUEST_DIFF_BASE_SHA:-$CI_COMMIT_BEFORE_SHA}"
+      zero_sha="0000000000000000000000000000000000000000"
+
+      if [ -n "$baseline" ] && [ "$baseline" != "$zero_sha" ] && git cat-file -e "${baseline}^{commit}" 2>/dev/null; then
+        semgrep scan \
+          --error \
+          --baseline-commit "$baseline" \
+          --config "$rules_dir/frappe-semgrep-rules/rules" \
+          --config r/python.lang.correctness \
+          "$APP_NAME"
+      else
+        # A full scan is informational until the existing findings are resolved;
+        # diff-aware scans above still reject every newly introduced finding.
+        semgrep scan \
+          --config "$rules_dir/frappe-semgrep-rules/rules" \
+          --config r/python.lang.correctness \
+          "$APP_NAME"
+      fi
+
+# Move the jobs from the included GitLab templates into the security stage.
+semgrep-sast:
+  stage: security
+
+secret_detection:
+  stage: security
+
+integration:
+  stage: test
+  services:
+    - name: mariadb:11.8
+      alias: mariadb
+      command:
+        - --character-set-server=utf8mb4
+        - --collation-server=utf8mb4_unicode_ci
+        - --skip-character-set-client-handshake
+    - name: redis:7-alpine
+      alias: redis
+  variables:
+    MARIADB_ROOT_PASSWORD: test_root
+    MARIADB_AUTO_UPGRADE: "1"
+    SITE_DB_PASSWORD: test_site
+  before_script:
+    - python --version
+    - node --version
+    - git config --global --add safe.directory "$CI_PROJECT_DIR"
+    - git -C "$CI_PROJECT_DIR" rev-parse --is-inside-work-tree
+    - |
+      python - <<'PY'
+      import sys
+
+      if sys.version_info < (3, 14):
+          raise SystemExit(f"Python 3.14+ required, found {sys.version}")
+      PY
+    - |
+      for attempt in $(seq 1 60); do
+        if mariadb-admin ping --host=mariadb --user=root --password="$MARIADB_ROOT_PASSWORD" --silent; then
+          break
+        fi
+        if [ "$attempt" -eq 60 ]; then
+          echo "MariaDB did not become ready in time."
+          exit 1
+        fi
+        sleep 1
+      done
+    - redis-cli -h redis ping
+    - |
+      bench init "$BENCH_DIR" \
+        --frappe-branch "$FRAPPE_BRANCH" \
+        --skip-assets \
+        --skip-redis-config-generation \
+        --no-backups \
+        --python "$(command -v python)"
+    - cd "$BENCH_DIR"
+    - bench get-app --branch "$ERPNEXT_BRANCH" --skip-assets "$ERPNEXT_REPOSITORY"
+    - bench get-app --soft-link --skip-assets "$CI_PROJECT_DIR"
+    - bench pip install "coverage[toml]>=7.6,<8" "unittest-xml-reporting>=3.2,<4"
+    - bench set-config -g redis_cache redis://redis:6379
+    - bench set-config -g redis_queue redis://redis:6379
+    - bench set-config -g redis_socketio redis://redis:6379
+    - |
+      bench new-site "$TEST_SITE" \
+        --db-type mariadb \
+        --db-host mariadb \
+        --db-port 3306 \
+        --db-name test_fiskaly \
+        --db-password "$SITE_DB_PASSWORD" \
+        --db-root-username root \
+        --db-root-password "$MARIADB_ROOT_PASSWORD" \
+        --mariadb-user-host-login-scope="%" \
+        --admin-password admin \
+        --set-default \
+        --install-app erpnext
+    - bench --site "$TEST_SITE" install-app "$APP_NAME"
+    - bench --site "$TEST_SITE" migrate
+    - bench --site "$TEST_SITE" set-config allow_tests 1 --parse
+    - mkdir -p "$CI_PROJECT_DIR/reports"
+  script:
+    - cd "$BENCH_DIR/sites"
+    # Run through coverage.py directly to measure branches and exclude tests.
+    - |
+      COVERAGE_FILE="$CI_PROJECT_DIR/reports/.coverage" \
+        "$BENCH_DIR/env/bin/python" -m coverage run \
+          --branch \
+          --source="../apps/$APP_NAME/$APP_NAME" \
+          --omit="*/tests/*,*/patches/*" \
+          -m frappe.utils.bench_helper \
+          frappe --site "$TEST_SITE" run-tests \
+          --app "$APP_NAME" \
+          --junit-xml-output "$CI_PROJECT_DIR/reports/junit.xml"
+    - |
+      COVERAGE_FILE="$CI_PROJECT_DIR/reports/.coverage" \
+        "$BENCH_DIR/env/bin/python" -m coverage report \
+          --show-missing \
+          --fail-under="$MIN_COVERAGE"
+    - |
+      COVERAGE_FILE="$CI_PROJECT_DIR/reports/.coverage" \
+        "$BENCH_DIR/env/bin/python" -m coverage xml \
+          -o "$CI_PROJECT_DIR/reports/coverage.xml"
+    # Audit the resolved Frappe/ERPNext environment. Upstream advisories are
+    # reported as CycloneDX but do not hide the app's own test result.
+    - |
+      uvx --from "pip-audit>=2.9,<3" pip-audit \
+        --path "$BENCH_DIR/env/lib/python3.14/site-packages" \
+        --skip-editable \
+        --progress-spinner=off \
+        --format cyclonedx-json \
+        --output "$CI_PROJECT_DIR/reports/dependencies.cdx.json" || audit_status=$?
+
+      if [ "${audit_status:-0}" -ne 0 ]; then
+        echo "Dependency advisories were found; inspect the CycloneDX artifact."
+      fi
+  coverage: '/TOTAL.*\s+(\d+%)/'
+  artifacts:
+    when: always
+    expire_in: 14 days
+    paths:
+      - reports/
+    reports:
+      junit: reports/junit.xml
+      coverage_report:
+        coverage_format: cobertura
+        path: reports/coverage.xml
+      cyclonedx: reports/dependencies.cdx.json
+
+package:
+  stage: package
+  image: python:3.14-slim-bookworm
+  script:
+    - python -m pip install "build>=1.2,<2" "twine>=6,<7"
+    - python -m build
+    - python -m twine check dist/*
+  artifacts:
+    expire_in: 30 days
+    paths:
+      - dist/

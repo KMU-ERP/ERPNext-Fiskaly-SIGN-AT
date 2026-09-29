@@ -1,0 +1,30 @@
+{
+ "actions": [],
+ "autoname": "hash",
+ "creation": "2026-08-18 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": ["connection", "receipt", "method", "url", "http_status", "success", "request_id", "request_payload", "response_payload", "error_message"],
+ "fields": [
+  {"fieldname": "connection", "fieldtype": "Link", "in_list_view": 1, "label": "API Connection", "options": "Fiskaly API Connection", "read_only": 1},
+  {"fieldname": "receipt", "fieldtype": "Data", "label": "Receipt UUID", "read_only": 1},
+  {"fieldname": "method", "fieldtype": "Data", "in_list_view": 1, "label": "Method", "read_only": 1},
+  {"fieldname": "url", "fieldtype": "Data", "label": "URL", "read_only": 1},
+  {"fieldname": "http_status", "fieldtype": "Int", "in_list_view": 1, "label": "HTTP Status", "read_only": 1},
+  {"default": "0", "fieldname": "success", "fieldtype": "Check", "in_list_view": 1, "label": "Success", "read_only": 1},
+  {"fieldname": "request_id", "fieldtype": "Data", "label": "Request ID", "read_only": 1},
+  {"fieldname": "request_payload", "fieldtype": "Code", "label": "Redacted Request", "options": "JSON", "read_only": 1},
+  {"fieldname": "response_payload", "fieldtype": "Code", "label": "Redacted Response", "options": "JSON", "read_only": 1},
+  {"fieldname": "error_message", "fieldtype": "Small Text", "label": "Transport Error", "read_only": 1}
+ ],
+ "links": [],
+ "modified": "2026-08-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Erpnext Fiskaly Sign At",
+ "name": "Fiskaly API Log",
+ "owner": "Administrator",
+ "permissions": [{"export": 1, "read": 1, "report": 1, "role": "System Manager"}, {"export": 1, "read": 1, "report": 1, "role": "Accounts Manager"}],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

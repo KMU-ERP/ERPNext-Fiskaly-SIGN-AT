@@ -1,0 +1,195 @@
+{
+ "app": "erpnext_fiskaly_sign_at",
+ "charts": [],
+ "content": "[{\"id\":\"pos-manager-header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>POS Manager</b></span><br><span class=\\\"text-muted\\\">Monitor POS operations, maintain master data, and review closings</span>\",\"col\":12}},{\"id\":\"pos-manager-pos\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Point of Sale\",\"col\":3}},{\"id\":\"pos-manager-openings\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"POS Openings\",\"col\":3}},{\"id\":\"pos-manager-closings\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"POS Closings\",\"col\":3}},{\"id\":\"pos-manager-status\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Receipt Status\",\"col\":3}},{\"id\":\"pos-manager-spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"pos-manager-operation\",\"type\":\"card\",\"data\":{\"card_name\":\"POS Operations\",\"col\":4}},{\"id\":\"pos-manager-master\",\"type\":\"card\",\"data\":{\"card_name\":\"POS Master Data\",\"col\":4}},{\"id\":\"pos-manager-help\",\"type\":\"card\",\"data\":{\"card_name\":\"Help\",\"col\":4}}]",
+ "creation": "2026-08-20 00:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "monitor-check",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "POS Manager",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "POS Operations",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Point of Sale",
+   "link_count": 0,
+   "link_to": "point-of-sale",
+   "link_type": "Page",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Review open POS sessions and opening balances",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "POS Openings",
+   "link_count": 0,
+   "link_to": "POS Opening Entry",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Review and process POS closings",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "POS Closings",
+   "link_count": 0,
+   "link_to": "POS Closing Entry",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Review POS invoices and track returns",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "POS Invoices",
+   "link_count": 0,
+   "link_to": "POS Invoice",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Monitor the fiscalization status of POS receipts",
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Receipt Status",
+   "link_count": 0,
+   "link_to": "Fiskaly Receipt Status",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Review signed and pending fiscal receipts",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Fiscal Receipts",
+   "link_count": 0,
+   "link_to": "Fiskaly Receipt",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "POS Master Data",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "description": "Manage users, payment methods, warehouses, and POS behavior",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "POS Profiles",
+   "link_count": 0,
+   "link_to": "POS Profile",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Review cash, card, and non-cash payment methods",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Modes of Payment",
+   "link_count": 0,
+   "link_to": "Mode of Payment",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Create and maintain POS customers",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Customers",
+   "link_count": 0,
+   "link_to": "Customer",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Help",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "description": "Step-by-step guidance for setup and daily RKSV operation",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "POS Manager Help",
+   "link_count": 0,
+   "link_to": "pos-manager-help",
+   "link_type": "Page",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-08-20 10:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Erpnext Fiskaly Sign At",
+ "name": "POS Manager",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "POS Manager"
+  }
+ ],
+ "sequence_id": 7,
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "label": "Point of Sale",
+   "link_to": "point-of-sale",
+   "type": "Page"
+  },
+  {
+   "color": "Orange",
+   "doc_view": "List",
+   "label": "POS Openings",
+   "link_to": "POS Opening Entry",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "POS Closings",
+   "link_to": "POS Closing Entry",
+   "type": "DocType"
+  },
+  {
+   "color": "Red",
+   "label": "Receipt Status",
+   "link_to": "Fiskaly Receipt Status",
+   "type": "Report"
+  }
+ ],
+ "title": "POS Manager",
+ "type": "Workspace"
+}

@@ -1,0 +1,27 @@
+{
+ "app": "erpnext_fiskaly_sign_at",
+ "creation": "2026-08-20 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Workspace Sidebar",
+ "header_icon": "monitor-check",
+ "idx": 0,
+ "items": [
+  {"child": 0, "collapsible": 1, "icon": "house", "indent": 0, "keep_closed": 0, "label": "Overview", "link_to": "POS Manager", "link_type": "Workspace", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "shopping-cart", "indent": 0, "keep_closed": 0, "label": "Point of Sale", "link_to": "point-of-sale", "link_type": "Page", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "log-in", "indent": 0, "keep_closed": 0, "label": "POS Openings", "link_to": "POS Opening Entry", "link_type": "DocType", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "log-out", "indent": 0, "keep_closed": 0, "label": "POS Closings", "link_to": "POS Closing Entry", "link_type": "DocType", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "receipt-text", "indent": 0, "keep_closed": 0, "label": "POS Invoices", "link_to": "POS Invoice", "link_type": "DocType", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "chart-no-axes-column", "indent": 0, "keep_closed": 0, "label": "Receipt Status", "link_to": "Fiskaly Receipt Status", "link_type": "Report", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "shield-check", "indent": 0, "keep_closed": 0, "label": "Fiscal Receipts", "link_to": "Fiskaly Receipt", "link_type": "DocType", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "settings-2", "indent": 0, "keep_closed": 0, "label": "POS Profiles", "link_to": "POS Profile", "link_type": "DocType", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "credit-card", "indent": 0, "keep_closed": 0, "label": "Modes of Payment", "link_to": "Mode of Payment", "link_type": "DocType", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "users", "indent": 0, "keep_closed": 0, "label": "Customers", "link_to": "Customer", "link_type": "DocType", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "circle-help", "indent": 0, "keep_closed": 0, "label": "POS Manager Help", "link_to": "pos-manager-help", "link_type": "Page", "show_arrow": 0, "type": "Link"}
+ ],
+ "modified": "2026-08-20 10:00:00.000000",
+ "modified_by": "Administrator",
+ "name": "POS Manager",
+ "owner": "Administrator",
+ "standard": 1,
+ "title": "POS Manager"
+}

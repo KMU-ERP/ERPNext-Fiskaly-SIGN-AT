@@ -1,0 +1,31 @@
+{
+ "app": "erpnext_fiskaly_sign_at",
+ "creation": "2026-08-18 00:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Workspace Sidebar",
+ "header_icon": "shield-check",
+ "idx": 0,
+ "items": [
+  {"child": 0, "collapsible": 1, "icon": "house", "indent": 0, "keep_closed": 0, "label": "Overview", "link_to": "Fiskaly RKSV", "link_type": "Workspace", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "settings", "indent": 0, "keep_closed": 0, "label": "RKSV Settings", "link_to": "Fiskaly Settings", "link_type": "DocType", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "plug", "indent": 0, "keep_closed": 0, "label": "API Connections", "link_to": "Fiskaly API Connection", "link_type": "DocType", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "monitor-smartphone", "indent": 0, "keep_closed": 0, "label": "Cash Registers / FON", "link_to": "Fiskaly Register", "link_type": "DocType", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "shopping-cart", "indent": 0, "keep_closed": 0, "label": "Point of Sale", "link_to": "point-of-sale", "link_type": "Page", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "settings-2", "indent": 0, "keep_closed": 0, "label": "POS Profiles", "link_to": "POS Profile", "link_type": "DocType", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "credit-card", "indent": 0, "keep_closed": 0, "label": "Modes of Payment", "link_to": "Mode of Payment", "link_type": "DocType", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "receipt-text", "indent": 0, "keep_closed": 0, "label": "POS Invoices", "link_to": "POS Invoice", "link_type": "DocType", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "shield-check", "indent": 0, "keep_closed": 0, "label": "Fiscal Receipts", "link_to": "Fiskaly Receipt", "link_type": "DocType", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "history", "indent": 0, "keep_closed": 0, "label": "Outage Lifecycle", "link_to": "Fiskaly Lifecycle Event", "link_type": "DocType", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "chart-no-axes-column", "indent": 0, "keep_closed": 0, "label": "Receipt Status", "link_to": "Fiskaly Receipt Status", "link_type": "Report", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "download", "indent": 0, "keep_closed": 0, "label": "DEP7 Exports", "link_to": "Fiskaly DEP7 Export", "link_type": "DocType", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "logs", "indent": 0, "keep_closed": 0, "label": "API Logs", "link_to": "Fiskaly API Log", "link_type": "DocType", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "database", "indent": 0, "keep_closed": 0, "label": "Provider Resources", "link_to": "Fiskaly Provider Resource", "link_type": "DocType", "show_arrow": 0, "type": "Link"},
+  {"child": 0, "collapsible": 1, "icon": "circle-help", "indent": 0, "keep_closed": 0, "label": "Fiskaly RKSV Help", "link_to": "fiskaly-rksv-help", "link_type": "Page", "show_arrow": 0, "type": "Link"}
+ ],
+ "modified": "2026-08-20 13:00:00.000000",
+ "modified_by": "Administrator",
+ "name": "Fiskaly RKSV",
+ "owner": "Administrator",
+ "standard": 1,
+ "title": "Fiskaly RKSV"
+}

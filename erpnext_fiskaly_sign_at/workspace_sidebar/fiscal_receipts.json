@@ -1,0 +1,3 @@
+{
+ "app": "erpnext_fiskaly_sign_at", "creation": "2026-08-20 10:00:00.000000", "docstatus": 0, "doctype": "Workspace Sidebar", "header_icon": "shield-check", "idx": 0, "items": [{"child": 0, "collapsible": 1, "icon": "shield-check", "indent": 0, "keep_closed": 0, "label": "Fiscal Receipts", "link_to": "Fiskaly Receipt", "link_type": "DocType", "show_arrow": 0, "type": "Link"}], "modified": "2026-08-20 10:00:00.000000", "modified_by": "Administrator", "name": "Fiscal Receipts", "owner": "Administrator", "standard": 1, "title": "Fiscal Receipts"
+}

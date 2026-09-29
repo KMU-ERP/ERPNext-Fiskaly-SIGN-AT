@@ -1,0 +1,3 @@
+{
+ "app": "erpnext_fiskaly_sign_at", "bg_color": "blue", "creation": "2026-08-20 10:00:00.000000", "docstatus": 0, "doctype": "Desktop Icon", "hidden": 0, "icon": "shield-check", "icon_type": "Link", "idx": 11, "label": "Fiscal Receipts", "link_to": "Fiscal Receipts", "link_type": "Workspace Sidebar", "modified": "2026-08-20 10:00:00.000000", "modified_by": "Administrator", "name": "Fiscal Receipts", "owner": "Administrator", "parent_icon": "", "restrict_removal": 0, "roles": [{"role": "POS Manager"}, {"role": "Fiskaly RKSV Administrator"}], "standard": 1
+}

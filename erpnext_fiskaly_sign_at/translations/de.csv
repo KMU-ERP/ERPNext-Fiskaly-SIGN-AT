@@ -1,0 +1,199 @@
+POS Cashier,POS-Kassier
+POS Manager,POS-Kassenleitung
+Fiskaly RKSV Administrator,Fiskaly-RKSV-Administration
+Point of Sale,Verkaufsstelle
+Open POS,Kasse öffnen
+Close POS,Kasse abschließen
+My POS Invoices,Meine POS-Rechnungen
+Overview,Übersicht
+POS Operations,Kassenbetrieb
+POS Master Data,POS-Stammdaten
+POS Profiles,POS-Profile
+POS Openings,POS-Eröffnungen
+POS Closings,POS-Abschlüsse
+POS Invoices,POS-Rechnungen
+Receipt Status,Belegstatus
+Fiscal Receipts,Fiskalbelege
+Modes of Payment,Zahlungsweisen
+Customers,Kunden
+Help,Hilfe
+Fiskaly RKSV Austria,Fiskaly RKSV Österreich
+"Setup, POS operation, outage lifecycle, and auditing in one place","Einrichtung, Kassenbetrieb, Ausfall-Lifecycle und Prüfung an einem Ort"
+"<span class=""h4""><b>Fiskaly RKSV Austria</b></span><br><span class=""text-muted"">Setup, POS operation, outage lifecycle, and auditing in one place</span>","<span class=""h4""><b>Fiskaly RKSV Österreich</b></span><br><span class=""text-muted"">Einrichtung, Kassenbetrieb, Ausfall-Lifecycle und Prüfung an einem Ort</span>"
+Step-by-Step Guide,Schritt-für-Schritt-Anleitung
+RKSV Settings,RKSV-Einstellungen
+Cash Registers,Registrierkassen
+Help and Documentation,Hilfe und Dokumentation
+Setup,Einrichtung
+Daily Operations,Laufender Betrieb
+Audit and Retention,Prüfung und Aufbewahrung
+"Set up, operate, handle outages, export DEP7, and decommission step by step","Einrichtung, Betrieb, Ausfälle, DEP7 und Außerbetriebnahme Schritt für Schritt"
+"Global RKSV activation, security rules, network, and retries","Globale RKSV-Aktivierung, Sicherheitsregeln, Netzwerk und Wiederholungen"
+"Separate fiskaly credentials by company, provider, and environment","Getrennte fiskaly Zugangsdaten je Unternehmen, Provider und Umgebung"
+"POS profile, register status, FinanzOnline, and lifecycle actions","POS-Profil, Kassenstatus, FinanzOnline- und Lifecycle-Aktionen"
+Provider Resources,Provider-Ressourcen
+"Manage POS profiles and the protected RKSV print format",POS-Profile und das geschützte RKSV-Druckformat verwalten
+"Open POS invoices and their Fiskaly status",POS-Rechnungen und deren Fiskaly-Status öffnen
+"Signed, pending, and outage receipts with immutable snapshots","Signierte, ausstehende und Ausfallbelege mit unveränderlichen Snapshots"
+"Append-only log for outages, recovery, FON notifications, and decommissioning","Append-only-Protokoll für Ausfälle, Wiederinbetriebnahme, FON-Meldungen und Außerbetriebnahme"
+Cash Register and Outage Lifecycle,Kassen- und Ausfall-Lifecycle
+"Review open, failed, and successfully signed receipts","Offene, fehlgeschlagene und erfolgreich signierte Belege kontrollieren"
+"Provide DEP7 for external audits and immutable backups",DEP7 für Außenprüfung und unveränderliche Sicherungen bereitstellen
+DEP7 Exports,DEP7-Exporte
+API Logs,API-Protokolle
+API Connections,API-Verbindungen
+Cash Registers / FON,Registrierkassen / FON
+Outage Lifecycle,Ausfall-Lifecycle
+"Sell, open the POS, and close your own POS session","Verkaufen, Kasse öffnen und die eigene Kassensitzung abschließen"
+"Add items, accept payment, and complete the sale","Artikel erfassen, Zahlung annehmen und Verkauf abschließen"
+"Create and review your own opening POS session and opening balance","Eigene POS-Eröffnung und Anfangsbestand anlegen und prüfen"
+"Count and close your own POS session","Eigene Kassensitzung zählen und abschließen"
+"Review your own open and completed POS invoices","Eigene offene und abgeschlossene POS-Rechnungen einsehen"
+"Step-by-step guidance for setup and daily RKSV operation","Schritt-für-Schritt-Anleitung für Einrichtung und täglichen RKSV-Betrieb"
+"Monitor POS operations, maintain master data, and review closings","Kassenbetrieb überwachen, Stammdaten pflegen und Abschlüsse kontrollieren"
+"Review open POS sessions and opening balances","Offene Kassensitzungen und Anfangsbestände kontrollieren"
+"Review and process POS closings","Kassenabschlüsse prüfen und bearbeiten"
+"Review POS invoices and track returns","POS-Rechnungen kontrollieren und Retouren nachvollziehen"
+"Monitor the fiscalization status of POS receipts","Fiskalisierungszustand der POS-Belege überwachen"
+"Review signed and pending fiscal receipts","Signierte und ausstehende Fiskalbelege einsehen"
+"Manage users, payment methods, warehouses, and POS behavior","Benutzer, Zahlarten, Lager und POS-Verhalten verwalten"
+"Review cash, card, and non-cash payment methods","Bar-, Karten- und bargeldlose Zahlungsweisen einsehen"
+"Create and maintain POS customers","Kunden für den POS anlegen und pflegen"
+POS Cashier Help,POS-Kassier-Hilfe
+POS Manager Help,POS-Kassenleitung-Hilfe
+Fiskaly Administrator Help,Fiskaly-Administrator-Hilfe
+Your workspace,Ihr Arbeitsbereich
+POS CASHIER,POS-KASSIER
+Your daily POS workflow,Ihr täglicher POS-Ablauf
+"Open your session, complete sales, review your invoices, and close the POS safely.","Öffnen Sie Ihre Sitzung, führen Sie Verkäufe durch, prüfen Sie Ihre Rechnungen und schließen Sie die Kasse sicher ab."
+"Only your five daily actions are displayed. Your POS documents are limited to your own user.","Es werden nur Ihre fünf täglichen Aktionen angezeigt. Ihre POS-Dokumente sind auf Ihren eigenen Benutzer beschränkt."
+Open Point of Sale,Verkaufsstelle öffnen
+Open POS session,Kassensitzung öffnen
+Close POS session,Kassensitzung abschließen
+Start your shift,Schicht beginnen
+Create one opening entry before the first sale.,Erstellen Sie vor dem ersten Verkauf genau einen Eröffnungseintrag.
+Select your POS Profile and enter the actual opening cash balance.,Wählen Sie Ihr POS-Profil und geben Sie den tatsächlichen Anfangsbestand ein.
+Do not open a second session while your own session is still open.,Öffnen Sie keine zweite Sitzung solange Ihre eigene Sitzung noch offen ist.
+Complete a sale,Verkauf abschließen
+Use Point of Sale for every cashier transaction.,Verwenden Sie die Verkaufsstelle für jeden Kassiervorgang.
+"Add items, select the correct payment method, and verify the received amount.","Erfassen Sie Artikel, wählen Sie die richtige Zahlungsweise und prüfen Sie den erhaltenen Betrag."
+Print the protected RKSV receipt after the invoice is completed.,Drucken Sie nach Abschluss der Rechnung den geschützten RKSV-Beleg.
+Review your invoices,Rechnungen prüfen
+My POS Invoices contains only invoices assigned to your user.,Meine POS-Rechnungen enthält nur Ihrem Benutzer zugeordnete Rechnungen.
+Check the fiscalization status before retrying or reporting a problem.,Prüfen Sie den Fiskalisierungsstatus bevor Sie einen Vorgang wiederholen oder ein Problem melden.
+Create returns through the approved POS return workflow; do not edit fiscal data.,Erstellen Sie Retouren über den vorgesehenen POS-Retourenablauf; bearbeiten Sie keine Fiskaldaten.
+Close your shift,Schicht abschließen
+Count the actual amounts and submit one closing entry.,Zählen Sie die tatsächlichen Beträge und buchen Sie genau einen Abschlusseintrag.
+Enter counted cash and other payment totals accurately.,Erfassen Sie gezähltes Bargeld und die Summen anderer Zahlungsweisen korrekt.
+"If a receipt remains pending or an amount differs, contact the POS Manager before closing.","Bleibt ein Beleg offen oder weicht ein Betrag ab, kontaktieren Sie vor dem Abschluss die Kassenleitung."
+POS MANAGER,POS-KASSENLEITUNG
+Manage daily POS operations,Täglichen Kassenbetrieb verwalten
+"Monitor sessions and fiscal receipts, resolve operational issues, and maintain POS master data.","Überwachen Sie Sitzungen und Fiskalbelege, lösen Sie betriebliche Probleme und pflegen Sie POS-Stammdaten."
+Only POS management actions are displayed; unrelated ERPNext modules are hidden.,Es werden nur Aktionen der Kassenleitung angezeigt; nicht zugehörige ERPNext-Module sind ausgeblendet.
+Open Receipt Status,Belegstatus öffnen
+Review POS Closings,POS-Abschlüsse prüfen
+Manage POS Profiles,POS-Profile verwalten
+Monitor sessions,Sitzungen überwachen
+Review openings and closings across the POS team.,Prüfen Sie Eröffnungen und Abschlüsse des gesamten POS-Teams.
+Identify sessions that remain open unexpectedly and contact the responsible cashier.,Ermitteln Sie unerwartet offene Sitzungen und kontaktieren Sie den verantwortlichen Kassier.
+Compare closing totals with the recorded payment methods and investigate differences.,Vergleichen Sie Abschlusssummen mit den erfassten Zahlungsweisen und klären Sie Abweichungen.
+Review invoices and returns,Rechnungen und Retouren prüfen
+Use POS Invoices and Fiscal Receipts for operational follow-up.,Verwenden Sie POS-Rechnungen und Fiskalbelege für die betriebliche Nachverfolgung.
+"Check invoice status, payment allocation, returns, and the linked fiscal receipt.","Prüfen Sie Rechnungsstatus, Zahlungszuordnung, Retouren und den verknüpften Fiskalbeleg."
+Never repair signature fields or QR data manually; escalate technical failures.,Korrigieren Sie Signaturfelder oder QR-Daten niemals manuell; eskalieren Sie technische Fehler.
+Watch fiscalization,Fiskalisierung überwachen
+Receipt Status is the central operational exception list.,Der Belegstatus ist die zentrale betriebliche Ausnahmeliste.
+"Review pending, retrying, failed, and action-required receipts regularly.","Prüfen Sie regelmäßig offene, erneut versuchte, fehlgeschlagene und handlungsbedürftige Belege."
+Escalate outages and configuration errors to the Fiskaly Administrator.,Eskalieren Sie Ausfälle und Konfigurationsfehler an die Fiskaly-Administration.
+Maintain POS master data,POS-Stammdaten pflegen
+"Keep profiles, payment methods, and customers ready for cashiers.","Halten Sie Profile, Zahlungsweisen und Kunden für die Kassierer bereit."
+"Assign the correct users, warehouse, price list, payment methods, and RKSV print format.","Ordnen Sie Benutzer, Lager, Preisliste, Zahlungsweisen und RKSV-Druckformat korrekt zu."
+Coordinate fiscal register or tax mapping changes with the Fiskaly Administrator.,Stimmen Sie Änderungen an Fiskalkassen oder Steuerzuordnungen mit der Fiskaly-Administration ab.
+FISKALY RKSV ADMINISTRATOR,FISKALY-RKSV-ADMINISTRATION
+Configure and safeguard RKSV operation,RKSV-Betrieb konfigurieren und absichern
+"Manage Fiskaly connections, cash registers, outages, evidence, exports, and controlled decommissioning.","Verwalten Sie Fiskaly-Verbindungen, Registrierkassen, Ausfälle, Nachweise, Exporte und die kontrollierte Außerbetriebnahme."
+Only Fiskaly administration and compliance actions are displayed; unrelated ERPNext modules are hidden.,Es werden nur Fiskaly-Administrations- und Compliance-Aktionen angezeigt; nicht zugehörige ERPNext-Module sind ausgeblendet.
+Open Cash Registers,Registrierkassen öffnen
+Open API Connections,API-Verbindungen öffnen
+Open RKSV Settings,RKSV-Einstellungen öffnen
+Configure the environment,Umgebung konfigurieren
+Prepare TEST completely before creating a separate LIVE setup.,Richten Sie TEST vollständig ein bevor Sie eine getrennte LIVE-Umgebung erstellen.
+Create separate API connections and cash registers for TEST and LIVE; never reuse credentials across environments.,Erstellen Sie getrennte API-Verbindungen und Registrierkassen für TEST und LIVE; verwenden Sie Zugangsdaten niemals umgebungsübergreifend.
+"Validate company identity, address, POS Profile, payment classification, and tax mappings before provisioning.","Prüfen Sie vor der Provisionierung Unternehmensidentität, Anschrift, POS-Profil, Zahlungsklassifizierung und Steuerzuordnungen."
+Provision and activate,Provisionieren und aktivieren
+Provision resources deliberately and verify the start receipt.,Provisionieren Sie Ressourcen bewusst und prüfen Sie den Startbeleg.
+"Select or create the correct SCU, initialize the register, and confirm successful FinanzOnline validation.","Wählen oder erstellen Sie die richtige SCU, initialisieren Sie die Kasse und bestätigen Sie die erfolgreiche FinanzOnline-Prüfung."
+Activate RKSV only after the linked register and connection pass all checks.,Aktivieren Sie RKSV erst nachdem die verknüpfte Kasse und Verbindung alle Prüfungen bestanden haben.
+Operate and handle outages,Betrieb und Ausfälle verwalten
+Monitor receipts and preserve the original transaction identity during failures.,Überwachen Sie Belege und erhalten Sie bei Fehlern die ursprüngliche Transaktionsidentität.
+"Review Receipt Status, Fiscal Receipts, Outage Lifecycle, and redacted API Logs.","Prüfen Sie Belegstatus, Fiskalbelege, Ausfall-Lifecycle und redigierte API-Protokolle."
+Record required FON outage evidence and synchronize automatic receipts after recovery.,Erfassen Sie erforderliche FON-Ausfallnachweise und synchronisieren Sie automatische Belege nach der Wiederherstellung.
+Archive and decommission,Archivieren und außer Betrieb nehmen
+Keep complete evidence and use irreversible actions only for permanent closure.,Bewahren Sie vollständige Nachweise auf und verwenden Sie unwiderrufliche Aktionen nur bei dauerhafter Schließung.
+Create quarterly backups and complete DEP7 audit exports with external-copy evidence.,Erstellen Sie vierteljährliche Sicherungen und vollständige DEP7-Prüfexporte mit Nachweis der externen Kopie.
+"Before decommissioning, resolve open receipts and outages, create the closing receipt, and verify the final export.","Klären Sie vor der Außerbetriebnahme offene Belege und Ausfälle, erstellen Sie den Schlussbeleg und prüfen Sie den finalen Export."
+Fiskaly RKSV Help,Fiskaly-RKSV-Hilfe
+SYSTEM ADMINISTRATION,SYSTEMADMINISTRATION
+Set up and operate Fiskaly RKSV,Fiskaly RKSV einrichten und betreiben
+General step-by-step guidance from TEST setup to controlled decommissioning.,Allgemeine Schritt-für-Schritt-Anleitung von der TEST-Einrichtung bis zur kontrollierten Außerbetriebnahme.
+"This general guide covers configuration, POS operation, compliance evidence, outages, exports, and lifecycle tasks.","Diese allgemeine Anleitung behandelt Konfiguration, POS-Betrieb, Compliance-Nachweise, Ausfälle, Exporte und Lifecycle-Aufgaben."
+Prepare ERPNext,ERPNext vorbereiten
+Complete the required master data before creating provider resources.,Vervollständigen Sie die erforderlichen Stammdaten bevor Sie Provider-Ressourcen erstellen.
+"Use Europe/Vienna, EUR, the Austrian tax identity, and a complete company operating address.","Verwenden Sie Europe/Vienna, EUR, die österreichische Steueridentität und eine vollständige Betriebsanschrift des Unternehmens."
+"Configure the POS Profile with users, warehouse, price list, payment methods, and the protected RKSV print format.","Konfigurieren Sie das POS-Profil mit Benutzern, Lager, Preisliste, Zahlungsweisen und dem geschützten RKSV-Druckformat."
+Classify every payment method correctly as RKSV cash equivalent or non-cash.,Klassifizieren Sie jede Zahlungsweise korrekt als RKSV-Baräquivalent oder bargeldlos.
+Create the TEST connection,TEST-Verbindung erstellen
+Validate credentials and FinanzOnline communication in TEST first.,Prüfen Sie Zugangsdaten und FinanzOnline-Kommunikation zuerst in TEST.
+"Keep TEST and LIVE API credentials, organizations, and cash registers strictly separate.","Halten Sie API-Zugangsdaten, Organisationen und Registrierkassen für TEST und LIVE strikt getrennt."
+Test the API connection and authenticate FinanzOnline before provisioning a register.,Testen Sie die API-Verbindung und authentifizieren Sie FinanzOnline bevor Sie eine Kasse provisionieren.
+Use syntactically valid dummy FinanzOnline values only in TEST; LIVE requires real credentials.,Verwenden Sie syntaktisch gültige FinanzOnline-Dummywerte nur in TEST; LIVE erfordert echte Zugangsdaten.
+Provision the cash register,Registrierkasse provisionieren
+Create the register deliberately and verify every immutable assignment.,Erstellen Sie die Kasse bewusst und prüfen Sie jede unveränderliche Zuordnung.
+"Assign the company, POS Profile, connection, operating address, and the correct existing or new SCU.","Ordnen Sie Unternehmen, POS-Profil, Verbindung, Betriebsanschrift und die richtige bestehende oder neue SCU zu."
+Map every tax rate actually used by the POS to the correct RKSV tax group.,Ordnen Sie jeden tatsächlich im POS verwendeten Steuersatz der richtigen RKSV-Steuergruppe zu.
+"Provision once, then verify the provider status, register ID, start receipt, and successful FON validation.","Provisionieren Sie einmal und prüfen Sie anschließend Providerstatus, Kassen-ID, Startbeleg und erfolgreiche FON-Validierung."
+Activate and accept TEST,TEST aktivieren und abnehmen
+Enable fiscalization only after the complete TEST setup passes all checks.,Aktivieren Sie die Fiskalisierung erst wenn die vollständige TEST-Einrichtung alle Prüfungen besteht.
+Select TEST in RKSV Settings and confirm the critical configuration change.,Wählen Sie TEST in den RKSV-Einstellungen und bestätigen Sie die kritische Konfigurationsänderung.
+"Test cash, card, non-cash, mixed payment, return, receipt printing, and the RKSV QR code.","Testen Sie Bar-, Karten-, bargeldlose und gemischte Zahlungen, Retouren, Belegdruck und den RKSV-QR-Code."
+"Verify that fiscal item totals, taxes, and the POS invoice grand total match exactly.","Prüfen Sie, dass Fiskalpositionssummen, Steuern und Gesamtsumme der POS-Rechnung exakt übereinstimmen."
+Run daily operations,Laufenden Betrieb durchführen
+Monitor fiscalization without modifying protected fiscal data.,Überwachen Sie die Fiskalisierung ohne geschützte Fiskaldaten zu verändern.
+"Review Receipt Status regularly for pending, retrying, failed, or action-required receipts.","Prüfen Sie den Belegstatus regelmäßig auf offene, erneut versuchte, fehlgeschlagene oder handlungsbedürftige Belege."
+Use the protected print action; duplicate prints and evidence are recorded.,Verwenden Sie die geschützte Druckaktion; Duplikatdrucke und Nachweise werden protokolliert.
+"Never edit receipt UUIDs, signatures, QR data, start receipts, or closing receipts directly.","Bearbeiten Sie Beleg-UUIDs, Signaturen, QR-Daten, Startbelege oder Schlussbelege niemals direkt."
+Handle outages,Ausfälle behandeln
+Preserve the original transaction and follow the documented outage lifecycle.,Bewahren Sie den ursprünglichen Vorgang und folgen Sie dem dokumentierten Ausfall-Lifecycle.
+Do not create a replacement register or a replacement receipt with a new UUID.,Erstellen Sie keine Ersatzkasse und keinen Ersatzbeleg mit einer neuen UUID.
+"Record outage start, the 48-hour threshold, required FON evidence, recovery, and outage end.","Erfassen Sie Ausfallbeginn, 48-Stunden-Schwelle, erforderliche FON-Nachweise, Wiederherstellung und Ausfallende."
+Synchronize automatic receipts after recovery until no action remains open.,Synchronisieren Sie automatische Belege nach der Wiederherstellung bis keine Maßnahme mehr offen ist.
+Create evidence and DEP7 backups,Nachweise und DEP7-Sicherungen erstellen
+"Keep complete, verified, and externally copied compliance evidence.","Bewahren Sie vollständige, geprüfte und extern kopierte Compliance-Nachweise auf."
+Create a complete DEP7 backup after every completed quarter and for external audits.,Erstellen Sie nach jedem abgeschlossenen Quartal und für Außenprüfungen eine vollständige DEP7-Sicherung.
+Verify both private export files against their SHA-256 values.,Prüfen Sie beide privaten Exportdateien gegen ihre SHA-256-Werte.
+Copy both files to external storage and record an unambiguous storage reference.,Kopieren Sie beide Dateien auf einen externen Speicher und erfassen Sie eine eindeutige Speicherreferenz.
+Move from TEST to LIVE,Von TEST nach LIVE wechseln
+Build LIVE separately instead of converting an existing TEST setup.,Richten Sie LIVE getrennt ein anstatt eine bestehende TEST-Einrichtung umzuwandeln.
+Create a separate LIVE connection with productive Fiskaly and FinanzOnline credentials.,Erstellen Sie eine getrennte LIVE-Verbindung mit produktiven Fiskaly- und FinanzOnline-Zugangsdaten.
+Create and provision a separate LIVE register and validate its start receipt.,Erstellen und provisionieren Sie eine getrennte LIVE-Kasse und validieren Sie deren Startbeleg.
+Switch the global environment to LIVE only after documented technical and operational acceptance.,Schalten Sie die globale Umgebung erst nach dokumentierter technischer und betrieblicher Abnahme auf LIVE.
+Decommission safely,Sicher außer Betrieb nehmen
+Use irreversible lifecycle actions only when the register is permanently closed.,Verwenden Sie unwiderrufliche Lifecycle-Aktionen nur wenn die Kasse dauerhaft geschlossen wird.
+Resolve all open receipts and outages before starting controlled decommissioning.,Klären Sie alle offenen Belege und Ausfälle bevor Sie die kontrollierte Außerbetriebnahme beginnen.
+"Create and archive the closing receipt, final DEP7 export, hash verification, and external-copy evidence.","Erstellen und archivieren Sie Schlussbeleg, finalen DEP7-Export, Hash-Prüfung und Nachweis der externen Kopie."
+Decommission a shared SCU only when no other active register still uses it.,Nehmen Sie eine gemeinsam genutzte SCU erst außer Betrieb wenn keine andere aktive Kasse sie mehr verwendet.
+Troubleshoot without losing evidence,Fehler beheben ohne Nachweise zu verlieren
+Retry idempotently and inspect redacted technical information.,Wiederholen Sie idempotent und prüfen Sie redigierte technische Informationen.
+"After an interrupted provider call, continue with the same ERPNext register and the same identifiers.",Setzen Sie nach einem unterbrochenen Provider-Aufruf mit derselben ERPNext-Kasse und denselben Kennungen fort.
+"Check Receipt Status, provider synchronization, tax mappings, and redacted API Logs.","Prüfen Sie Belegstatus, Provider-Synchronisierung, Steuerzuordnungen und redigierte API-Protokolle."
+Do not use database edits as a shortcut for correcting fiscal records or lifecycle evidence.,Verwenden Sie Datenbankänderungen nicht als Abkürzung zur Korrektur von Fiskalbelegen oder Lifecycle-Nachweisen.
+"General guidance for setup, operation, outages, DEP7, and decommissioning","Allgemeine Anleitung für Einrichtung, Betrieb, Ausfälle, DEP7 und Außerbetriebnahme"
+Setting up the RKSV print format …,RKSV-Druckformat wird eingerichtet …
+The RKSV print format was configured.,Das RKSV-Druckformat wurde eingerichtet.
+This POS Profile uses the required RKSV print format.,Dieses POS-Profil verwendet das vorgeschriebene RKSV-Druckformat.
+This active RKSV POS Profile must use print format {0}. Correct it now?,Dieses aktive RKSV-POS-Profil muss das Druckformat {0} verwenden. Jetzt korrigieren?
+RKSV Print Format Required,RKSV-Druckformat erforderlich
+Ask a System Manager to set the print format to {0}.,Bitte lassen Sie das Druckformat durch einen System Manager auf {0} setzen.
+Automatic prefill of the default payment method was disabled for manual cash entry.,Die automatische Vorbelegung der Standard-Zahlungsart wurde für die manuelle Bareingabe deaktiviert.
+Check RKSV Print Format,RKSV-Druckformat prüfen
+Disable Set Grand Total to Default Payment Method before enabling manual cash entry.,Deaktivieren Sie „Gesamtsumme auf Standard-Zahlungsart setzen“ bevor Sie die manuelle Bareingabe aktivieren.

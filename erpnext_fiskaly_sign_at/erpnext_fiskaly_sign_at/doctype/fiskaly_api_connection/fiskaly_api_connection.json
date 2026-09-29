@@ -1,0 +1,295 @@
+{
+ "actions": [],
+ "autoname": "field:connection_name",
+ "creation": "2026-08-18 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "intro_html",
+  "connection_section",
+  "connection_name",
+  "company",
+  "connection_column",
+  "provider",
+  "environment",
+  "active",
+  "critical_change_confirmation",
+  "api_section",
+  "api_key",
+  "api_secret",
+  "api_column",
+  "api_version",
+  "scope_help_html",
+  "scope_identifier",
+  "load_unified_scopes",
+  "base_url",
+  "base_url_override",
+  "tax_section",
+  "tax_id_number",
+  "tax_column",
+  "vat_id_number",
+  "fon_section",
+  "fon_help_html",
+  "fon_participant_id",
+  "fon_column",
+  "fon_user_id",
+  "fon_user_pin",
+  "status_section",
+  "status",
+  "last_tested_at",
+  "status_column",
+  "last_error"
+ ],
+ "fields": [
+  {
+   "fieldname": "intro_html",
+   "fieldtype": "HTML",
+   "options": "<div class=\"alert alert-info\"><strong>API-Verbindung je Mandant und Umgebung</strong><br>SIGN AT v1 ist die produktiv freigegebene Integration. SIGN AT Unified ist als getrennte, erweiterbare Implementierung vorhanden, darf bis zur Freigabe aber nur in TEST verwendet werden. Zugangsdaten für TEST und LIVE niemals wiederverwenden.</div>"
+  },
+  {
+   "fieldname": "connection_section",
+   "fieldtype": "Section Break",
+   "label": "Zuordnung"
+  },
+  {
+   "fieldname": "connection_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Verbindungsname",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "1",
+   "description": "Nur aktive Verbindungen können für die Fiskalisierung ausgewählt werden.",
+   "fieldname": "active",
+   "fieldtype": "Check",
+   "in_list_view": 1,
+   "label": "Aktiv"
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Unternehmen",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "fieldname": "connection_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "SIGN_AT_V1: freigegebene RKSV-API. SIGN_AT_UNIFIED: neue, noch nicht für LIVE freigegebene API in eigener Adapter-Implementierung.",
+   "fieldname": "provider",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "API-Generation",
+   "options": "SIGN_AT_V1\nSIGN_AT_UNIFIED",
+   "reqd": 1
+  },
+  {
+   "default": "TEST",
+   "description": "Die Umgebung wird am Server validiert. Unified + LIVE ist unabhängig von der UI gesperrt.",
+   "fieldname": "environment",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Umgebung",
+   "options": "TEST\nLIVE",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "description": "Einmalige Bestätigung für Änderungen an Provider, Umgebung, Zugangsdaten oder Endpunkt. Wird nach dem Speichern automatisch zurückgesetzt.",
+   "fieldname": "critical_change_confirmation",
+   "fieldtype": "Check",
+   "label": "Kritische Verbindungsänderung bestätigen"
+  },
+  {
+   "fieldname": "api_section",
+   "fieldtype": "Section Break",
+   "label": "fiskaly API"
+  },
+  {
+   "description": "API-Key aus dem fiskaly Dashboard für exakt diese Umgebung.",
+   "fieldname": "api_key",
+   "fieldtype": "Data",
+   "label": "API-Key",
+   "reqd": 1
+  },
+  {
+   "description": "Wird verschlüsselt im Frappe Password Store abgelegt und nie in Protokollen ausgegeben.",
+   "fieldname": "api_secret",
+   "fieldtype": "Password",
+   "label": "API-Secret",
+   "reqd": 1
+  },
+  {
+   "fieldname": "api_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Wird anhand der API-Generation automatisch gesetzt und muss im Normalbetrieb nicht geändert werden.",
+   "fieldname": "api_version",
+   "fieldtype": "Data",
+   "label": "API-Version",
+   "permlevel": 1
+  },
+  {
+   "depends_on": "eval:doc.provider=='SIGN_AT_UNIFIED'",
+   "fieldname": "scope_help_html",
+   "fieldtype": "HTML",
+   "options": "<div class=\"alert alert-info\"><strong>Mandantensichere Unified-Organisation</strong><br>Es wird ausschließlich die Organisation übernommen, an die dieser API-Key gebunden ist. Andere erreichbare Organisationen werden weder geladen noch angezeigt. Verwenden Sie für jedes ERPNext-Unternehmen einen API-Key aus dessen eigener fiskaly-Organisation.</div>"
+  },
+  {
+   "depends_on": "eval:doc.provider=='SIGN_AT_UNIFIED'",
+   "description": "Wird automatisch aus dem API-Key ermittelt. Eine manuelle Auswahl fremder Organisationen ist aus Sicherheitsgründen nicht möglich.",
+   "fieldname": "scope_identifier",
+   "fieldtype": "Autocomplete",
+   "label": "Unified-Organisation / Scope",
+   "read_only": 1
+  },
+  {
+   "depends_on": "eval:doc.provider=='SIGN_AT_UNIFIED'",
+   "fieldname": "load_unified_scopes",
+   "fieldtype": "Button",
+   "label": "Organisation aus API-Key übernehmen"
+  },
+  {
+   "description": "Wird aus API-Generation und Umgebung automatisch ermittelt.",
+   "fieldname": "base_url",
+   "fieldtype": "Data",
+   "label": "Verwendeter API-Endpunkt",
+   "read_only": 1
+  },
+  {
+   "description": "Nur für kontrollierte Tests durch System Manager. Außerhalb des developer_mode sind ausschließlich HTTPS-Endpunkte unter fiskaly.com sowie lokale TEST-Endpunkte erlaubt; Zugangsdaten, Query-Strings und Fragmente sind verboten.",
+   "fieldname": "base_url_override",
+   "fieldtype": "Data",
+   "label": "Abweichender API-Endpunkt",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "tax_section",
+   "fieldtype": "Section Break",
+   "label": "Österreichischer Abgabepflichtiger"
+  },
+  {
+   "description": "7- oder 9-stellige österreichische Steuernummer. Beispiel: Die Eingabe 543762173 wird automatisch als 54-376/2173 dargestellt. Wird nur verwendet, wenn keine UID eingetragen ist.",
+   "fieldname": "tax_id_number",
+   "fieldtype": "Data",
+   "label": "Steuernummer"
+  },
+  {
+   "fieldname": "tax_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Österreichische UID im üblichen Format ATU77315745. Für Unified wird sie automatisch als U77315745 übertragen und bei gleichzeitig vorhandener Steuernummer bevorzugt.",
+   "fieldname": "vat_id_number",
+   "fieldtype": "Data",
+   "label": "UID-Nummer"
+  },
+  {
+   "fieldname": "fon_section",
+   "fieldtype": "Section Break",
+   "label": "FinanzOnline-Zugang über fiskaly"
+  },
+  {
+   "fieldname": "fon_help_html",
+   "fieldtype": "HTML",
+   "options": "<div class=\"alert alert-info\"><strong>FinanzOnline-Zugang</strong><br>fiskaly führt die FinanzOnline-Kommunikation aus, benötigt dafür aber diese Zugangsdaten. In TEST genügen syntaktisch gültige Dummy-Daten; in LIVE ist ein echter Registrierkassen-Webservice-Benutzer erforderlich.</div>"
+  },
+  {
+   "description": "Teilnehmer-ID für die von fiskaly ausgeführte FinanzOnline-Kommunikation.",
+   "fieldname": "fon_participant_id",
+   "fieldtype": "Data",
+   "label": "Teilnehmer-ID"
+  },
+  {
+   "fieldname": "fon_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Benutzer-ID für die von fiskaly ausgeführte FinanzOnline-Kommunikation.",
+   "fieldname": "fon_user_id",
+   "fieldtype": "Data",
+   "label": "Benutzer-ID"
+  },
+  {
+   "description": "PIN für die von fiskaly ausgeführte FinanzOnline-Kommunikation; verschlüsselte Speicherung.",
+   "fieldname": "fon_user_pin",
+   "fieldtype": "Password",
+   "label": "PIN"
+  },
+  {
+   "fieldname": "status_section",
+   "fieldtype": "Section Break",
+   "label": "Verbindungsstatus"
+  },
+  {
+   "default": "UNTESTED",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "UNTESTED\nCONNECTED\nERROR",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_tested_at",
+   "fieldtype": "Datetime",
+   "label": "Zuletzt getestet am",
+   "read_only": 1
+  },
+  {
+   "fieldname": "status_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_error",
+   "fieldtype": "Small Text",
+   "label": "Letzter Fehler",
+   "read_only": 1
+  }
+ ],
+ "links": [],
+ "modified": "2026-08-18 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Erpnext Fiskaly Sign At",
+ "name": "Fiskaly API Connection",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "share": 1,
+   "write": 1,
+   "role": "System Manager"
+  },
+  {
+   "create": 1,
+   "permlevel": 1,
+   "read": 1,
+   "write": 1,
+   "role": "System Manager"
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "report": 1,
+   "write": 1,
+   "role": "Accounts Manager"
+  }
+ ],
+ "search_fields": "connection_name,company,provider,environment",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

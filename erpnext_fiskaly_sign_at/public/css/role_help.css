@@ -1,0 +1,120 @@
+.role-help {
+	color: var(--text-color);
+	margin: 0 auto;
+	max-width: 1120px;
+	padding: var(--padding-lg) var(--padding-md) 80px;
+}
+
+.role-help-hero {
+	align-items: center;
+	background: linear-gradient(135deg, var(--fg-color), var(--subtle-fg));
+	border: 1px solid var(--border-color);
+	border-radius: var(--border-radius-lg);
+	display: flex;
+	gap: 32px;
+	justify-content: space-between;
+	padding: 28px 32px;
+}
+
+.role-help-hero h2 {
+	font-size: 24px;
+	font-weight: 650;
+	line-height: 1.3;
+	margin: 6px 0 8px;
+}
+
+.role-help-hero p,
+.role-help-section p {
+	color: var(--text-muted);
+	line-height: 1.55;
+	margin-bottom: 0;
+}
+
+.role-help-eyebrow {
+	color: var(--primary);
+	font-size: var(--text-xs);
+	font-weight: 650;
+	letter-spacing: 0.08em;
+}
+
+.role-help-actions {
+	display: flex;
+	flex: 0 0 auto;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.role-help-notice {
+	background: var(--blue-50);
+	border-left: 4px solid var(--blue-500);
+	border-radius: var(--border-radius-md);
+	line-height: 1.55;
+	margin: var(--margin-md) 0;
+	padding: 14px 16px;
+}
+
+.role-help-content {
+	display: grid;
+	gap: 16px;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.role-help-section {
+	background: var(--fg-color);
+	border: 1px solid var(--border-color);
+	border-radius: var(--border-radius-md);
+	display: grid;
+	gap: 14px;
+	grid-template-columns: 34px minmax(0, 1fr);
+	padding: 22px;
+}
+
+.role-help-section-number {
+	align-items: center;
+	background: var(--primary);
+	border-radius: 50%;
+	color: white;
+	display: flex;
+	font-weight: 650;
+	height: 30px;
+	justify-content: center;
+	width: 30px;
+}
+
+.role-help-section h3 {
+	font-size: 17px;
+	font-weight: 650;
+	margin: 3px 0 8px;
+}
+
+.role-help-section ul {
+	line-height: 1.55;
+	margin: 14px 0 0;
+	padding-left: 20px;
+}
+
+.role-help-section li {
+	margin-bottom: 7px;
+}
+
+@media (max-width: 767px) {
+	.role-help {
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	.role-help-hero {
+		align-items: stretch;
+		flex-direction: column;
+		padding: 22px;
+	}
+
+	.role-help-actions,
+	.role-help-content {
+		grid-template-columns: 1fr;
+	}
+
+	.role-help-content {
+		display: grid;
+	}
+}

@@ -1,0 +1,187 @@
+{
+ "actions": [],
+ "creation": "2026-08-18 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "intro_html",
+  "activation_section",
+  "enabled",
+  "operating_environment",
+  "activation_column",
+  "critical_change_confirmation",
+  "allow_unified_live",
+  "compliance_section",
+  "enforce_pos_only_cash_receipts",
+  "compliance_column",
+  "offline_notice",
+  "network_section",
+  "connect_timeout_seconds",
+  "read_timeout_seconds",
+  "network_column",
+  "retry_interval_minutes",
+  "max_retries",
+  "logging_section",
+  "log_retention_days"
+ ],
+ "fields": [
+  {
+   "fieldname": "intro_html",
+   "fieldtype": "HTML",
+   "options": "<div class=\"alert alert-info\"><strong>Globale RKSV-Betriebssteuerung</strong><br>Hier steuern Sie Aktivierung, Sicherheitsregeln und das technische Wiederholungsverhalten. Zugangsdaten, API-Generation und TEST-/LIVE-Zuordnung werden direkt an der jeweiligen API-Verbindung gepflegt.</div>"
+  },
+  {
+   "fieldname": "activation_section",
+   "fieldtype": "Section Break",
+   "label": "Betriebssteuerung"
+  },
+  {
+   "default": "0",
+   "description": "Aktiviert die Fiskalisierung für konfigurierte POS-Profile. Erst einschalten, wenn Verbindung, Kasse, Steuersätze und RKSV-Druckformat vollständig geprüft sind.",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "RKSV-Fiskalisierung aktivieren",
+   "permlevel": 1
+  },
+  {
+   "default": "TEST",
+   "description": "TEST erzeugt keine produktiven Fiskalbelege. LIVE darf nur nach erfolgreicher Inbetriebnahme der produktiven SIGN AT v1-Kasse gewählt werden.",
+   "fieldname": "operating_environment",
+   "fieldtype": "Select",
+   "label": "Aktive Umgebung",
+   "options": "TEST\nLIVE",
+   "permlevel": 1,
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "description": "Einmalige Bestätigung für Aktivierung, LIVE-Wechsel, Deaktivierung eines laufenden LIVE-Betriebs oder andere kritische Umgebungsänderungen. Wird beim Speichern automatisch zurückgesetzt und revisionssicher protokolliert.",
+   "fieldname": "critical_change_confirmation",
+   "fieldtype": "Check",
+   "label": "Kritische Änderung ausdrücklich bestätigen",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "activation_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "description": "Sicherheitssperre: Unified SIGN AT ist im LIVE-Betrieb noch nicht freigegeben.",
+   "fieldname": "allow_unified_live",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Unified LIVE zulassen (gesperrt)",
+   "permlevel": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "compliance_section",
+   "fieldtype": "Section Break",
+   "label": "RKSV-Sicherheitsregeln"
+  },
+  {
+   "default": "1",
+   "description": "Muss bei aktiver RKSV eingeschaltet bleiben. Direkte eingehende Payment Entries sowie bezahlte Sales Invoices werden nur mit ausdrücklich als Non-Cash klassifizierten Zahlarten zugelassen. Baranzahlungen und Raten müssen über einen fiskalisierten POS-/RKSV-Belegprozess erfasst werden.",
+   "fieldname": "enforce_pos_only_cash_receipts",
+   "fieldtype": "Check",
+   "label": "Barumsätze außerhalb des POS blockieren",
+   "permlevel": 1
+  },
+  {
+   "fieldname": "compliance_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Sicherheitseinrichtung ausgefallen",
+   "description": "Gesetzlich vorgesehener Wortlaut für den Ausfall der Signaturerstellungseinheit. Der Wert ist absichtlich nicht frei änderbar.",
+   "fieldname": "offline_notice",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Ausfallhinweis",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "network_section",
+   "fieldtype": "Section Break",
+   "label": "Netzwerk und Wiederholung"
+  },
+  {
+   "default": "5",
+   "description": "Maximale Zeit für den Aufbau einer Verbindung zu fiskaly.",
+   "fieldname": "connect_timeout_seconds",
+   "fieldtype": "Int",
+   "label": "Verbindungs-Timeout (Sekunden)"
+  },
+  {
+   "default": "20",
+   "description": "Maximale Wartezeit auf eine Antwort nach erfolgreichem Verbindungsaufbau.",
+   "fieldname": "read_timeout_seconds",
+   "fieldtype": "Int",
+   "label": "Antwort-Timeout (Sekunden)"
+  },
+  {
+   "fieldname": "network_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "5",
+   "description": "Grundintervall der automatischen Nachverarbeitung. Wiederholungen behalten immer die ursprüngliche Beleg-UUID.",
+   "fieldname": "retry_interval_minutes",
+   "fieldtype": "Int",
+   "label": "Wiederholungsintervall (Minuten)"
+  },
+  {
+   "default": "48",
+   "description": "Ab dieser Anzahl wird der Vorgang betrieblich eskaliert. Der Beleg wird weder verworfen noch mit einer neuen UUID angelegt und bleibt bis zur erfolgreichen Signierung oder dokumentierten Klärung in der Nachverarbeitung. Diese Zahl ist keine 48-Stunden-Ausfallfrist; Ausfallmeldungen werden im Kassen-Lifecycle separat überwacht.",
+   "fieldname": "max_retries",
+   "fieldtype": "Int",
+   "label": "Eskalationsschwelle für Wiederholungen"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "logging_section",
+   "fieldtype": "Section Break",
+   "label": "Technische Protokollierung"
+  },
+  {
+   "default": "90",
+   "description": "Technische API-Protokolle; gesetzlich aufzubewahrende DEP-Daten und Sicherungen sind davon unabhängig.",
+   "fieldname": "log_retention_days",
+   "fieldtype": "Int",
+   "label": "Aufbewahrung technischer Logs (Tage)"
+  }
+ ],
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-08-20 04:42:58.790766",
+ "modified_by": "Administrator",
+ "module": "Erpnext Fiskaly Sign At",
+ "name": "Fiskaly Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "read": 1,
+   "write": 1,
+   "role": "System Manager"
+  },
+  {
+   "create": 1,
+   "permlevel": 1,
+   "read": 1,
+   "write": 1,
+   "role": "System Manager"
+  },
+  {
+   "read": 1,
+   "write": 1,
+   "role": "Accounts Manager"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

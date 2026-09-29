@@ -1,0 +1,28 @@
+{
+ "actions": [],
+ "autoname": "format:{resource_type}-{provider_resource_id}",
+ "creation": "2026-08-18 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": ["connection", "register", "resource_type", "provider_resource_id", "state", "mode", "provider_data"],
+ "fields": [
+  {"fieldname": "connection", "fieldtype": "Link", "in_list_view": 1, "label": "API Connection", "options": "Fiskaly API Connection", "read_only": 1, "reqd": 1},
+  {"fieldname": "register", "fieldtype": "Link", "label": "Register", "options": "Fiskaly Register", "read_only": 1},
+  {"fieldname": "resource_type", "fieldtype": "Select", "in_list_view": 1, "label": "Resource Type", "options": "SCU\nTAXPAYER\nLOCATION\nSYSTEM\nORGANIZATION", "read_only": 1, "reqd": 1},
+  {"fieldname": "provider_resource_id", "fieldtype": "Data", "in_list_view": 1, "label": "Provider Resource ID", "read_only": 1, "reqd": 1},
+  {"fieldname": "state", "fieldtype": "Data", "in_list_view": 1, "label": "State", "read_only": 1},
+  {"fieldname": "mode", "fieldtype": "Data", "label": "Mode", "read_only": 1},
+  {"fieldname": "provider_data", "fieldtype": "Code", "label": "Provider Data", "options": "JSON", "read_only": 1}
+ ],
+ "links": [],
+ "modified": "2026-08-18 11:20:59.696385",
+ "modified_by": "Administrator",
+ "module": "Erpnext Fiskaly Sign At",
+ "name": "Fiskaly Provider Resource",
+ "owner": "Administrator",
+ "permissions": [{"export": 1, "read": 1, "report": 1, "role": "System Manager"}, {"export": 1, "read": 1, "report": 1, "role": "Accounts Manager"}],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

@@ -1,0 +1,236 @@
+{
+ "app": "erpnext_fiskaly_sign_at",
+ "charts": [],
+ "content": "[{\"id\":\"fiskaly-header\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Fiskaly RKSV Austria</b></span><br><span class=\\\"text-muted\\\">Setup, POS operation, outage lifecycle, and auditing in one place</span>\",\"col\":12}},{\"id\":\"fiskaly-guide-shortcut\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Fiskaly RKSV Help\",\"col\":3}},{\"id\":\"fiskaly-settings-shortcut\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"RKSV Settings\",\"col\":3}},{\"id\":\"fiskaly-register-shortcut\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Cash Registers\",\"col\":3}},{\"id\":\"fiskaly-status-shortcut\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Receipt Status\",\"col\":3}},{\"id\":\"fiskaly-spacer\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"fiskaly-help\",\"type\":\"card\",\"data\":{\"card_name\":\"Help and Documentation\",\"col\":3}},{\"id\":\"fiskaly-setup\",\"type\":\"card\",\"data\":{\"card_name\":\"Setup\",\"col\":3}},{\"id\":\"fiskaly-operation\",\"type\":\"card\",\"data\":{\"card_name\":\"Daily Operations\",\"col\":3}},{\"id\":\"fiskaly-audit\",\"type\":\"card\",\"data\":{\"card_name\":\"Audit and Retention\",\"col\":3}}]",
+ "creation": "2026-08-18 00:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "icon": "shield-check",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Fiskaly RKSV",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Help and Documentation",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "description": "General guidance for setup, operation, outages, DEP7, and decommissioning",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Fiskaly RKSV Help",
+   "link_count": 0,
+   "link_to": "fiskaly-rksv-help",
+   "link_type": "Page",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Setup",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "description": "Global RKSV activation, security rules, network, and retries",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "RKSV Settings",
+   "link_count": 0,
+   "link_to": "Fiskaly Settings",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Separate fiskaly credentials by company, provider, and environment",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "API Connections",
+   "link_count": 0,
+   "link_to": "Fiskaly API Connection",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "POS profile, register status, FinanzOnline, and lifecycle actions",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Cash Registers",
+   "link_count": 0,
+   "link_to": "Fiskaly Register",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Provider Resources",
+   "link_count": 0,
+   "link_to": "Fiskaly Provider Resource",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Daily Operations",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Point of Sale",
+   "link_count": 0,
+   "link_to": "point-of-sale",
+   "link_type": "Page",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Manage POS profiles and the protected RKSV print format",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "POS Profiles",
+   "link_count": 0,
+   "link_to": "POS Profile",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Open POS invoices and their Fiskaly status",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "POS Invoices",
+   "link_count": 0,
+   "link_to": "POS Invoice",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Signed, pending, and outage receipts with immutable snapshots",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Fiscal Receipts",
+   "link_count": 0,
+   "link_to": "Fiskaly Receipt",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Append-only log for outages, recovery, FON notifications, and decommissioning",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Cash Register and Outage Lifecycle",
+   "link_count": 0,
+   "link_to": "Fiskaly Lifecycle Event",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Audit and Retention",
+   "link_count": 0,
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "description": "Review open, failed, and successfully signed receipts",
+   "hidden": 0,
+   "is_query_report": 1,
+   "label": "Receipt Status",
+   "link_count": 0,
+   "link_to": "Fiskaly Receipt Status",
+   "link_type": "Report",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "description": "Provide DEP7 for external audits and immutable backups",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "DEP7 Exports",
+   "link_count": 0,
+   "link_to": "Fiskaly DEP7 Export",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "API Logs",
+   "link_count": 0,
+   "link_to": "Fiskaly API Log",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-08-20 13:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Erpnext Fiskaly Sign At",
+ "name": "Fiskaly RKSV",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Fiskaly RKSV Administrator"
+  }
+ ],
+ "sequence_id": 8,
+ "shortcuts": [
+  {
+   "color": "Blue",
+   "label": "Fiskaly RKSV Help",
+   "link_to": "fiskaly-rksv-help",
+   "type": "Page"
+  },
+  {
+   "color": "Grey",
+   "label": "RKSV Settings",
+   "link_to": "Fiskaly Settings",
+   "type": "DocType"
+  },
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Cash Registers",
+   "link_to": "Fiskaly Register",
+   "type": "DocType"
+  },
+  {
+   "color": "Orange",
+   "label": "Receipt Status",
+   "link_to": "Fiskaly Receipt Status",
+   "type": "Report"
+  }
+ ],
+ "title": "Fiskaly RKSV",
+ "type": "Workspace"
+}
