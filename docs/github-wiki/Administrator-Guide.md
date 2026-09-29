@@ -1,56 +1,59 @@
-# Administrator Guide
+# 🛠️ Administrator Guide
 
-Use this procedure for each company and environment. Finish TEST and document acceptance before preparing LIVE.
+[🇬🇧 English](Administrator-Guide) · [🇩🇪 Deutsch](Administrationshandbuch) · [Home](Home)
 
-## 1. Prepare ERPNext master data
+Use this process for each company and environment. Complete TEST and document acceptance before preparing LIVE.
+
+## 1 · Prepare ERPNext
 
 Before creating Fiskaly resources, confirm the following:
 
-- The Company uses **EUR** and the **Europe/Vienna** time zone.
-- The company’s Austrian tax identifiers and complete operating address are correct.
-- The POS Profile has the intended users, warehouse, price list, and payment methods.
-- Every payment method has the correct RKSV classification: cash equivalent or non-cash. Check mixed payments as well as single-method payments.
-- The POS Profile uses the app’s protected RKSV print format, shown in ERPNext as **POS Invoice RKSV**.
-- Every tax rate used by the POS has an explicit Fiskaly VAT mapping. Ask the responsible accounting or tax adviser to confirm the mapping. Do not map a taxable rate to zero merely to bypass a validation error.
+| Check | What to confirm |
+| --- | --- |
+| Company | Currency is **EUR**, time zone is **Europe/Vienna**, Austrian tax identifiers are correct, and the operating address is complete. |
+| POS Profile | Users, warehouse, price list, and payment methods are correct for the register. |
+| Payment methods | Each method has the correct RKSV classification: cash equivalent or non-cash. Include mixed payments in acceptance checks. |
+| Receipt print | The POS Profile uses the protected **POS Invoice RKSV** print format. |
+| VAT mappings | Every tax rate used by the POS has a mapping. Confirm each mapping with accounting; do not map a taxable rate to zero to bypass a validation error. |
 
-The app’s register form describes its core assignment as **one cash register per POS Profile and environment**. Plan a separate register for each relevant POS Profile in TEST and LIVE.
+The register form describes the assignment as **one cash register per POS Profile and environment**. Plan a separate register for each relevant profile in TEST and LIVE.
 
-## 2. Create and test a TEST API connection
+## 2 · Create a TEST API connection
 
-Open the **Fiskaly RKSV** workspace and select **API Connections**. You can also find the **Fiskaly API Connection** DocType with ERPNext’s search.
+Open **Fiskaly RKSV → API Connections**, or search for **Fiskaly API Connection** in ERPNext.
 
-1. Create a connection for the intended company.
-2. Select the provider and **TEST** environment.
-   - Choose **SIGN_AT_V1** when preparing the currently supported production path.
-   - **SIGN_AT_UNIFIED** is TEST-only. The app does not permit it to run in LIVE.
-3. Enter the TEST API credentials in ERPNext. Do not place credentials in source files, Git, Wiki pages, tickets, or screenshots.
-4. For TEST, use only syntactically valid dummy FinanzOnline values where requested. Never enter real LIVE FinanzOnline credentials into TEST.
-5. Save the connection, then use **Verbindung testen** (Test Connection). Resolve any error before proceeding.
-6. For SIGN_AT_V1, use **FinanzOnline authentifizieren** after saving the connection. This action is not shown for Unified.
-7. For Unified, load the organization/scope only after saving the API credentials, then verify the returned organization before continuing.
+1. Create a connection for the intended company and select **TEST**.
+2. Select the provider:
+   - **SIGN_AT_V1** for the current production path.
+   - **SIGN_AT_UNIFIED** for TEST integration only; the app disables Unified LIVE.
+3. Enter the TEST API credentials in ERPNext. Never put credentials in source files, Git, the Wiki, tickets, or screenshots.
+4. In TEST, enter only syntactically valid dummy FinanzOnline values where requested. Never use real LIVE credentials in TEST.
+5. Save the connection, then click **Verbindung testen** (Test Connection). Resolve errors before continuing.
+6. For SIGN_AT_V1, click **FinanzOnline authentifizieren** after saving. This action is not available for Unified.
+7. For Unified, load the organization/scope after saving the credentials, then verify that it belongs to the API key.
 
-Keep connections separate by company, provider, and environment. Do not change a provisioned connection’s provider, credentials, scope, or environment as a shortcut for moving a register between environments. The app requires confirmation for critical changes and locks register assignments after initialization.
+Keep connections separate by company, provider, and environment. Do not repurpose a provisioned connection to move a register between environments. Critical changes require confirmation, and register assignments are locked after initialization.
 
-## 3. Create the TEST cash register
+## 3 · Create and provision the TEST register
 
-Open **Cash Registers** in the **Fiskaly RKSV** workspace and create a register.
+Open **Fiskaly RKSV → Cash Registers** and create a register.
 
 1. Set the register name, Company, POS Profile, API Connection, and operating address.
-2. Check that the provider and environment displayed on the register match the selected connection.
-3. For SIGN_AT_V1, select a matching existing SCU or choose to create a new one during provisioning. Only choose an existing SCU after confirming it belongs to the same environment and company identity.
-4. Add the VAT mappings required by the POS Profile. Check every tax account/rate combination with accounting.
-5. Review all assignments before selecting **Provision and initialize**. Provisioning creates provider-side resources and should not be repeated to correct a simple configuration mistake.
-6. After provisioning, verify the provider register ID, register status, serial number, linked start receipt, and start-receipt FinanzOnline validation status.
+2. Confirm the displayed provider and environment match the connection.
+3. For SIGN_AT_V1, choose a matching existing SCU or select the option to create one during provisioning. An existing SCU must belong to the same environment and company identity.
+4. Add the VAT mappings required by the POS Profile.
+5. Review every assignment, then click **Provision and initialize** once.
+6. Verify the provider register ID, status, serial number, linked start receipt, and—on SIGN_AT_V1—the start receipt’s FinanzOnline validation status.
 
-The app locks key assignments after initialization or creation of the start receipt. If an assignment is wrong, stop and contact the Fiskaly administrator before processing sales.
+> 🔒 **After initialization:** Key assignments are locked after initialization or creation of the start receipt. If an assignment is wrong, stop and contact the Fiskaly administrator before processing sales.
 
-## 4. Enable and accept TEST
+## 4 · Enable and accept TEST
 
-Open **RKSV Settings** from the workspace.
+Open **Fiskaly RKSV → RKSV Settings**.
 
 1. Set the active environment to **TEST**.
 2. Enable RKSV only after the TEST connection and register are ready.
-3. Confirm the critical change when prompted.
+3. Confirm the critical change if prompted.
 4. Run a controlled acceptance checklist:
    - cash-equivalent payment;
    - non-cash payment;
@@ -59,30 +62,30 @@ Open **RKSV Settings** from the workspace.
    - receipt print and QR code;
    - return linked to the original invoice;
    - receipt-status monitoring;
-   - recovery from a simulated TEST connection interruption, if this is part of the organization’s test plan.
-5. Confirm that invoice totals and the fiscal receipt agree and that no receipt remains in an unexplained pending, failed, or action-required state.
+   - recovery from a simulated TEST interruption, if included in your test plan.
+5. Confirm invoice totals and fiscal receipt data agree. Resolve any unexplained pending, failed, or action-required receipt before acceptance.
 
-Do not simulate outages by disconnecting a LIVE register. Use an approved TEST scenario only.
+Never simulate an outage by disconnecting a LIVE register.
 
-## 5. Prepare LIVE
+## 5 · Prepare LIVE
 
 After TEST acceptance, create a **separate LIVE API connection and a separate LIVE register**. Do not convert the TEST register.
 
 1. Create a SIGN_AT_V1 connection for the correct company and select **LIVE**.
-2. Enter the production Fiskaly credentials and the real FinanzOnline registrierkassen web-service user details. Limit access to authorized administrators.
+2. Enter production Fiskaly credentials and the authorized real FinanzOnline registrierkassen web-service user details.
 3. Test the connection and complete the required FinanzOnline authentication.
 4. Create a separate LIVE register linked to the correct LIVE POS Profile, connection, address, SCU, and VAT mappings.
-5. Provision it once and verify the LIVE start receipt and its FinanzOnline status.
-6. Only after the checks pass, set the global **RKSV Settings** environment to **LIVE**, confirm the critical change, and verify that the active connection and register are also LIVE.
-7. Complete a supervised first sale and verify its receipt, QR code, and status.
+5. Provision once and verify the LIVE start receipt and its FinanzOnline status.
+6. Only after these checks pass, set the global **RKSV Settings** environment to **LIVE**, confirm the critical change, and verify the active connection and register are also LIVE.
+7. Supervise the first sale and verify its receipt, QR code, and status.
 
-**Unified LIVE is not available.** Do not enable it or use the `Allow Unified LIVE` setting as a workaround; the provider adapter has a hard LIVE guard.
+> ⛔ **Unified LIVE is unavailable.** Do not use the `Allow Unified LIVE` setting as a workaround; the provider adapter has a hard LIVE guard.
 
 ## Security and access
 
-- Give API connections, settings, register provisioning, outage handling, and exports only to the roles that need them.
-- Never share credentials in this public Wiki or in issue reports. Use your approved secret-sharing method.
-- Do not edit signature values, QR data, receipt identifiers, provider snapshots, or lifecycle evidence in the database.
+- Grant access to API connections, settings, register provisioning, outages, and exports only to roles that need them.
+- Never share credentials in this public Wiki. Use your approved private secret-sharing method.
+- Do not edit signatures, QR data, receipt identifiers, provider snapshots, or lifecycle evidence in the database.
 - Treat fiscal receipts, DEP7 files, API logs, FinanzOnline references, and customer details as confidential operational data.
 - Before changing an environment or credentials, verify the company, provider, and register assignment, then complete the app’s critical-change confirmation.
 
