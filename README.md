@@ -1,5 +1,8 @@
 # 🇦🇹 ERPNext Fiskaly SIGN-AT Integration
 
+> ⚠️ **BETA-VERSION**
+> Diese App befindet sich derzeit in einer aktiven Entwicklungs- und Beta-Phase. Funktionen können sich ohne Vorankündigung ändern, und es können unerwartete Fehler auftreten.
+
 **Die professionelle, ausfallsichere RKSV-Lösung für deine ERPNext Registrierkasse.**
 
 Mit dieser App integrierst du die österreichische Registrierkassensicherheitsverordnung (RKSV) nahtlos in dein ERPNext-System (Frappe 16). Sie verknüpft die POS-Funktionen von ERPNext mit dem cloudbasierten Signatur-Service von **fiskaly** – komplett unsichtbar für den Kassierer im Alltag, aber zu 100 % konform mit den Anforderungen des Finanzamts (inkl. automatischer FinanzOnline-Meldungen).
